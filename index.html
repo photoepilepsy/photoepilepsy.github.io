@@ -1262,23 +1262,21 @@
                     <p>Our comprehensive project poster summarizes the methodology, results, and key findings of the photosensitive epilepsy detection and correction system. Click on the poster to view it in full resolution.</p>
                 </div>
                 
-                <!-- Poster Image Placeholder - Replace with actual poster -->
-                <div class="poster-placeholder" onclick="openPosterModal()">
-                    <div class="poster-icon">📋</div>
-                    <div>
-                        <strong>Project Poster</strong><br>
-                        <span style="font-size: 1rem; opacity: 0.8;">Click to upload and view the poster<br>
-                        (Replace this placeholder with your actual poster image)</span>
-                    </div>
-                </div>
-                
-                <!-- Uncomment and replace src when you have the poster image -->
-                <!--
-                <img src="path-to-your-poster.jpg" 
+                <!-- Project Poster -->
+                <img src="poster.png" 
                      alt="Detection and Correction of Photosensitive Epilepsy Triggers in Videos - Project Poster" 
                      class="poster-image" 
                      onclick="openPosterModal()">
-                -->
+                
+                <!-- Fallback if poster.png is not found -->
+                <div class="poster-placeholder" style="display: none;" id="posterFallback">
+                    <div class="poster-icon">📋</div>
+                    <div>
+                        <strong>Project Poster</strong><br>
+                        <span style="font-size: 1rem; opacity: 0.8;">poster.png not found<br>
+                        Please add poster.png to the same directory as this HTML file</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1434,14 +1432,14 @@
             const modalImg = document.getElementById('modalPosterImage');
             const posterImg = document.querySelector('.poster-image');
             
-            if (posterImg) {
+            if (posterImg && !posterImg.style.display === 'none') {
                 modal.style.display = 'block';
                 modalImg.src = posterImg.src;
                 modalImg.alt = posterImg.alt;
                 document.body.style.overflow = 'hidden'; // Prevent background scrolling
             } else {
-                // If poster placeholder is clicked, show instructions
-                alert('Please replace the placeholder with your actual poster image by:\n\n1. Uploading your poster image\n2. Uncommenting the <img> tag\n3. Adding the correct src path');
+                // If poster image failed to load
+                alert('Poster image (poster.png) could not be loaded. Please ensure poster.png is in the same directory as this HTML file.');
             }
         }
 
@@ -1450,6 +1448,24 @@
             modal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
         }
+
+        // Handle poster image load error
+        document.addEventListener('DOMContentLoaded', function() {
+            const posterImg = document.querySelector('.poster-image');
+            const posterFallback = document.getElementById('posterFallback');
+            
+            if (posterImg) {
+                posterImg.addEventListener('error', function() {
+                    console.log('Poster image failed to load');
+                    posterImg.style.display = 'none';
+                    posterFallback.style.display = 'flex';
+                });
+                
+                posterImg.addEventListener('load', function() {
+                    console.log('Poster image loaded successfully');
+                });
+            }
+        });
 
         // Close modal with Escape key
         document.addEventListener('keydown', function(event) {
