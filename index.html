@@ -1273,8 +1273,8 @@
                     <div class="poster-icon">📋</div>
                     <div>
                         <strong>Project Poster</strong><br>
-                        <span style="font-size: 1rem; opacity: 0.8;">poster.png not found<br>
-                        Please add poster.png to the same directory as this HTML file</span>
+                        <span style="font-size: 1rem; opacity: 0.8;">src/poster.png not found<br>
+                        Please add poster.png to the src/ directory</span>
                     </div>
                 </div>
             </div>
@@ -1432,14 +1432,15 @@
             const modalImg = document.getElementById('modalPosterImage');
             const posterImg = document.querySelector('.poster-image');
             
-            if (posterImg && !posterImg.style.display === 'none') {
+            if (posterImg && posterImg.style.display !== 'none' && posterImg.complete && posterImg.naturalHeight !== 0) {
                 modal.style.display = 'block';
                 modalImg.src = posterImg.src;
                 modalImg.alt = posterImg.alt;
                 document.body.style.overflow = 'hidden'; // Prevent background scrolling
             } else {
                 // If poster image failed to load
-                alert('Poster image (poster.png) could not be loaded. Please ensure poster.png is in the same directory as this HTML file.');
+                console.log('Cannot open modal: poster image not loaded properly');
+                alert('Poster image (src/poster.png) could not be loaded. Please ensure poster.png is in the src/ directory.');
             }
         }
 
@@ -1456,13 +1457,18 @@
             
             if (posterImg) {
                 posterImg.addEventListener('error', function() {
-                    console.log('Poster image failed to load');
+                    console.log('Poster image failed to load: src/poster.png');
                     posterImg.style.display = 'none';
-                    posterFallback.style.display = 'flex';
+                    if (posterFallback) {
+                        posterFallback.style.display = 'flex';
+                    }
                 });
                 
                 posterImg.addEventListener('load', function() {
-                    console.log('Poster image loaded successfully');
+                    console.log('Poster image loaded successfully: src/poster.png');
+                    if (posterFallback) {
+                        posterFallback.style.display = 'none';
+                    }
                 });
             }
         });
