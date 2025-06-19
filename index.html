@@ -1323,32 +1323,39 @@
                 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 350px)); gap: 25px; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto; justify-content: center;">
                     <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
-                        <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🎭 Adaptive Overlay Correction</h4>
+                        <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">⚙️ Parameters</h4>
                         <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="margin-bottom: 8px;"><strong>Dynamic Opacity:</strong> 0.3-0.7 based on luminance analysis</li>
-                            <li style="margin-bottom: 8px;"><strong>Brightness Calculation:</strong> YUV color space conversion</li>
-                            <li style="margin-bottom: 8px;"><strong>Overlay Generation:</strong> Gaussian blur (σ=5) + alpha blending</li>
-                            <li style="margin-bottom: 8px;"><strong>Edge Enhancement:</strong> Sobel operator for detail preservation</li>
+                            <li style="margin-bottom: 8px;"><strong>Flash Detection:</strong> Threshold of 180 on scale 0-255, if roughly %70 of frame is bright than it is considered as flash.</li>
+                            <li style="margin-bottom: 8px;"><strong>Intense Color Detection:</strong> Threshold of 200 on scale 0-255 for RGB channels. At least x1.5 times stronger than other channels.</li>
+                            <li style="margin-bottom: 8px;"><strong>Flicker Detection:</strong> Average brightness across frame, with threshold of 30.</li>
+                            <li style="margin-bottom: 8px;"><strong>Dangerous Flicker Frequency:</strong> If there are 3 or more detections in a second that's considered medically dangerous.</li>
                         </ul>
                     </div>
-                    
+
                     <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
-                        <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">📊 Flicker Detection & Smoothing</h4>
+                        <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🎭 Per Pixel Variance Analysis for Flicker</h4>
                         <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="margin-bottom: 8px;"><strong>Frequency Analysis:</strong> FFT-based 15-25Hz detection</li>
-                            <li style="margin-bottom: 8px;"><strong>Temporal Buffer:</strong> 7-frame sliding window analysis</li>
-                            <li style="margin-bottom: 8px;"><strong>Gaussian Filter:</strong> σ=1.2 temporal kernel smoothing</li>
-                            <li style="margin-bottom: 8px;"><strong>Motion Compensation:</strong> Lucas-Kanade optical flow</li>
+                            <li style="margin-bottom: 8px;"><strong>Pixel by Pixel Analysis:</strong> We don’t just analyze entire frames, we go pixel by pixel. By stacking grayscale frames and calculating the variance of each pixel across time, we can detect which parts of the image are flickering.</li>
+                            <li style="margin-bottom: 8px;"><strong>Producing a Flicker Mask:</strong> A steady pixel like someone’s face will have low variance. A rapidly changing area like a disco ball or flashing light will have high variance.</li>
+                            <li style="margin-bottom: 8px;"><strong>Importance of The Mask:</strong> If someone is speaking in front of a flashing light, the speaker stays clear while the background gets corrected.</li>
                         </ul>
                     </div>
-                    
+
                     <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
-                        <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🌈 Intelligent Color Reduction</h4>
+                        <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🌈 Intense Color Detection</h4>
                         <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="margin-bottom: 8px;"><strong>Red Channel:</strong> 15-35% logarithmic intensity scaling</li>
-                            <li style="margin-bottom: 8px;"><strong>Blue Channel:</strong> 10-28% selective dimming algorithm</li>
-                            <li style="margin-bottom: 8px;"><strong>HSV Preservation:</strong> Hue locked, saturation max 80%</li>
-                            <li style="margin-bottom: 8px;"><strong>Perceptual Model:</strong> CIE L*a*b* color space weighting</li>
+                            <li style="margin-bottom: 8px;"><strong>Bright and Dominant Color Channel:</strong> Not all bright color pixels are dangerous, it's the intense flashing ones that creates a risk.</li>
+                            <li style="margin-bottom: 8px;"><strong>Red & Blue Masks:</strong> Frames that contain either an intense red or blue are flagged true.</li>
+                            <li style="margin-bottom: 8px;"><strong>Morphological Operations:</strong> If an intense color has a few "normal" pixels scattered within it is just noise fill those gaps. If there are small amount of isolated intense pixels it is just detection error, remove them.</li>
+                        </ul>
+                    </div>
+
+                    <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                        <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">📊 Main Correction Pipeline</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 8px;"><strong>Analyse the Frame Sequence for Flickers</strong></li>
+                            <li style="margin-bottom: 8px;"><strong>For Each Frame:</strong> Calculate metrics(brightness,color intensity). Detect flashes and intense colors. </li>
+                            <li style="margin-bottom: 8px;"><strong>Apply Corrections:</strong>Using the masks obtained make the video trigger free.</li>
                         </ul>
                     </div>
                 </div>
