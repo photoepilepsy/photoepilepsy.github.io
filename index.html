@@ -464,6 +464,7 @@
         .video-carousel {
             display: flex;
             transition: transform 0.4s ease-in-out;
+            gap: 20px;
         }
 
         .video-pair {
@@ -472,7 +473,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             padding: 0 10px;
-            flex-shrink: 0;
         }
 
         .video-item {
@@ -1119,6 +1119,62 @@
                         </ul>
                     </div>
 
+                    <body.light-theme .features-box {
+                        background: var(--bg-card-light);
+                    }
+
+                    <div style="margin-top: 40px;">
+                        <h3 style="color: var(--accent-primary); margin-bottom: 25px; text-align: center;">🛡️ Advanced Correction Pipeline</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;">
+                            <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                                <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🚀 Implementation</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 8px;"><strong>Framework:</strong> PyTorch 2.0 + OpenCV 4.8</li>
+                                    <li style="margin-bottom: 8px;"><strong>Processing Speed:</strong> 2.4 FPS on RTX 4060</li>
+                                    <li style="margin-bottom: 8px;"><strong>Memory Usage:</strong> 2.8GB VRAM peak allocation</li>
+                                    <li style="margin-bottom: 8px;"><strong>API Interface:</strong> RESTful service + WebSocket streaming</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> adaptive histogram</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                                <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🔍 Content-Aware Processing</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 8px;"><strong>ROI Detection:</strong> Semantic segmentation for key areas</li>
+                                    <li style="margin-bottom: 8px;"><strong>Selective Correction:</strong> Background vs foreground weighting</li>
+                                    <li style="margin-bottom: 8px;"><strong>Face Protection:</strong> MTCNN-based facial region preservation</li>
+                                    <li style="margin-bottom: 8px;"><strong>Text Overlay:</strong> OCR detection + readability maintenance</li>
+                                    <li style="margin-bottom: 8px;"><strong>Scene Classification:</strong> Dynamic vs static content handling</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                                <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">⚙️ Quality Assurance Pipeline</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 8px;"><strong>SSIM Validation:</strong> Structural similarity >0.87 threshold</li>
+                                    <li style="margin-bottom: 8px;"><strong>PSNR Monitoring:</strong> Peak signal-to-noise >32dB</li>
+                                    <li style="margin-bottom: 8px;"><strong>LPIPS Assessment:</strong> Perceptual distance <0.15</li>
+                                    <li style="margin-bottom: 8px;"><strong>PEAT Integration:</strong> Real-time safety validation</li>
+                                    <li style="margin-bottom: 8px;"><strong>User Feedback:</strong> Adaptive correction strength tuning</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                                <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🚀 Implementation Details</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 8px;"><strong>Framework:</strong> PyTorch 2.0 + OpenCV 4.8</li>
+                                    <li style="margin-bottom: 8px;"><strong>Processing Speed:</strong> 2.4 FPS on RTX 4060</li>
+                                    <li style="margin-bottom: 8px;"><strong>Memory Usage:</strong> 2.8GB VRAM peak allocation</li>
+                                    <li style="margin-bottom: 8px;"><strong>Optimization:</strong> TensorRT acceleration support</li>
+                                    <li style="margin-bottom: 8px;"><strong>API Interface:</strong> RESTful service + WebSocket streaming</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                     <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
                         <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(228, 120, 90, 0.3);">
                             <h4 style="color: var(--accent-primary); margin-bottom: 15px; font-size: 1.2rem;">🎯 Performance Metrics</h4>
@@ -1296,6 +1352,52 @@
             </div>
         </div>
     </section>
+                
+                <div class="arch-highlight">
+                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🎬 Video Processing Pipeline</h3>
+                    <p><strong>Input Format:</strong> Video frames extracted in 30-frame sliding windows with 15-frame stride (50% overlap)</p>
+                    <p><strong>Preprocessing:</strong> BGR→RGB conversion, resize to 224×224, ImageNet normalization (μ=[0.485, 0.456, 0.406], σ=[0.229, 0.224, 0.225])</p>
+                    <p><strong>Batch Processing:</strong> Frames reshaped to (B×30, 3, 224, 224) for efficient parallel processing through CNN backbone</p>
+                    <p><strong>Memory Optimization:</strong> Gradient checkpointing and mixed precision training for handling large temporal sequences</p>
+                </div>
+                
+                <div class="arch-highlight">
+                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🧠 Feature Extraction Module</h3>
+                    <p><strong>CNN Backbone:</strong> EfficientNet-B0 (ImageNet pretrained) extracts 1280-dimensional spatial features per frame</p>
+                    <p><strong>Feature Projection:</strong> Linear layer (1280→1024) with ReLU activation projects features for transformer compatibility</p>
+                    <p><strong>Positional Encoding:</strong> Learnable 1024-dimensional embeddings provide temporal frame order information</p>
+                    <p><strong>Dropout Regularization:</strong> 0.1 dropout rate applied after projection to prevent overfitting</p>
+                </div>
+                
+                <div class="arch-highlight">
+                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🔄 Temporal Transformer</h3>
+                    <p><strong>Architecture:</strong> 3 encoder layers with 4-head self-attention (d_model=1024, d_ff=4096)</p>
+                    <p><strong>Self-Attention:</strong> Captures complex temporal dependencies across 30-frame sequences for flicker pattern detection</p>
+                    <p><strong>Layer Normalization:</strong> Pre-norm configuration with residual connections for stable training</p>
+                    <p><strong>Global Pooling:</strong> Mean pooling across temporal dimension produces final 1024-dimensional sequence representation</p>
+                </div>
+                
+                <div class="arch-highlight">
+                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🎯 Classification Head</h3>
+                    <p><strong>Architecture:</strong> Two-layer MLP (1024→512→1) with ReLU activation and dropout (0.3)</p>
+                    <p><strong>Output:</strong> Single sigmoid neuron for binary trigger classification (safe vs. dangerous)</p>
+                    <p><strong>Loss Function:</strong> Binary cross-entropy with class weights (1:3) to handle class imbalance</p>
+                    <p><strong>Decision Threshold:</strong> Optimized threshold (τ=0.7) balances precision and recall for safety-critical application</p>
+                </div>
+                
+                <div class="arch-highlight">
+                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">⚙️ Training Configuration</h3>
+                    <p><strong>Optimizer:</strong> AdamW with learning rate 1e-4, weight decay 1e-2, and cosine annealing schedule</p>
+                    <p><strong>Data Augmentation:</strong> Random horizontal flip, color jitter (brightness±0.2, contrast±0.2), and temporal jittering</p>
+                    <p><strong>Batch Size:</strong> 16 sequences per batch (480 total frames) with gradient accumulation for effective batch size of 64</p>
+                    <p><strong>Validation:</strong> Early stopping based on F1-score with patience of 10 epochs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+            </div>
+        </div>
+    </section>
 
     <!-- Demo Section -->
     <section id="demo" class="section">
@@ -1346,6 +1448,102 @@
                                     <div class="video-label video-original">Original (With Triggers)</div>
                                     <video class="video-element" loop muted autoplay>
                                         <source src="videos/original/9.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
+                                    </div>
+                                </div>
+                                <div class="video-item">
+                                    <div class="video-label video-corrected">Corrected (Safe)</div>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="videos/corrected/9.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video Pair 2 -->
+                            <div class="video-pair">
+                                <div class="video-item">
+                                    <div class="video-label video-original">Original (With Triggers)</div>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="videos/original/1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
+                                    </div>
+                                </div>
+                                <div class="video-item">
+                                    <div class="video-label video-corrected">Corrected (Safe)</div>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="videos/corrected/1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video Pair 3 -->
+                            <div class="video-pair">
+                                <div class="video-item">
+                                    <div class="video-label video-original">Original (With Triggers)</div>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="videos/original/7.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
+                                    </div>
+                                </div>
+                                <div class="video-item">
+                                    <div class="video-label video-corrected">Corrected (Safe)</div>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="videos/corrected/7.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video Pair 4 -->
+                            <div class="video-pair">
+                                <div class="video-item">
+                                    <div class="video-label video-original">Original (With Triggers)</div>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="videos/original/14.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
+                                    </div>
+                                </div>
+                                <div class="video-item">
+                                    <div class="video-label video-corrected">Corrected (Safe)</div>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="videos/corrected/14.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video Pair 5 -->
+                            <div class="video-pair">
+                                <div class="video-item">
+                                    <div class="video-label video-original">Original (With Triggers)</div>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="videos/original/17.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                     <div class="video-controls">
@@ -1772,7 +1970,7 @@
         // Initialize video synchronizer
         const videoSync = new VideoSynchronizer();
 
-        // Video Carousel Functionality - Updated for side-by-side layout
+        // Video Carousel Functionality
         let currentSlideIndex = 0;
         const totalSlides = 5;
 
@@ -1794,8 +1992,8 @@
                 currentSlideIndex = totalSlides - 1;
             }
             
-            // Update carousel position - each slide is 20% of container width
-            const translateX = -currentSlideIndex * 20;
+            // Update carousel position
+            const translateX = -currentSlideIndex * 100;
             carousel.style.transform = `translateX(${translateX}%)`;
             
             // Update indicators
@@ -1818,7 +2016,7 @@
                     currentPair.video1.play().catch(e => console.log('Auto-play failed:', e));
                     currentPair.video2.play().catch(e => console.log('Auto-play failed:', e));
                 }
-            }, 400);
+            }, 300);
         }
 
         function currentSlide(slideNumber) {
@@ -1895,99 +2093,3 @@
     </script>
 </body>
 </html>
-                                        <source src="videos/corrected/9.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <div class="video-controls">
-                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Video Pair 2 -->
-                            <div class="video-pair">
-                                <div class="video-item">
-                                    <div class="video-label video-original">Original (With Triggers)</div>
-                                    <video class="video-element" loop muted autoplay>
-                                        <source src="videos/original/1.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <div class="video-controls">
-                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
-                                    </div>
-                                </div>
-                                <div class="video-item">
-                                    <div class="video-label video-corrected">Corrected (Safe)</div>
-                                    <video class="video-element" loop muted autoplay>
-                                        <source src="videos/corrected/1.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <div class="video-controls">
-                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Video Pair 3 -->
-                            <div class="video-pair">
-                                <div class="video-item">
-                                    <div class="video-label video-original">Original (With Triggers)</div>
-                                    <video class="video-element" loop muted autoplay>
-                                        <source src="videos/original/7.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <div class="video-controls">
-                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
-                                    </div>
-                                </div>
-                                <div class="video-item">
-                                    <div class="video-label video-corrected">Corrected (Safe)</div>
-                                    <video class="video-element" loop muted autoplay>
-                                        <source src="videos/corrected/7.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <div class="video-controls">
-                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Video Pair 4 -->
-                            <div class="video-pair">
-                                <div class="video-item">
-                                    <div class="video-label video-original">Original (With Triggers)</div>
-                                    <video class="video-element" loop muted autoplay>
-                                        <source src="videos/original/14.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <div class="video-controls">
-                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
-                                    </div>
-                                </div>
-                                <div class="video-item">
-                                    <div class="video-label video-corrected">Corrected (Safe)</div>
-                                    <video class="video-element" loop muted autoplay>
-                                        <source src="videos/corrected/14.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <div class="video-controls">
-                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Video Pair 5 -->
-                            <div class="video-pair">
-                                <div class="video-item">
-                                    <div class="video-label video-original">Original (With Triggers)</div>
-                                    <video class="video-element" loop muted autoplay>
-                                        <source src="videos/original/17.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <div class="video-controls">
-                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
-                                    </div>
-                                </div>
-                                <div class="video-item">
-                                    <div class="video-label video-corrected">Corrected (Safe)</div>
-                                    <video class="video-element" loop muted autoplay>
