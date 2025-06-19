@@ -464,7 +464,6 @@
         .video-carousel {
             display: flex;
             transition: transform 0.4s ease-in-out;
-            gap: 20px;
         }
 
         .video-pair {
@@ -473,6 +472,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             padding: 0 10px;
+            flex-shrink: 0;
         }
 
         .video-item {
@@ -1772,7 +1772,7 @@
         // Initialize video synchronizer
         const videoSync = new VideoSynchronizer();
 
-        // Video Carousel Functionality
+        // Video Carousel Functionality - Updated for side-by-side layout
         let currentSlideIndex = 0;
         const totalSlides = 5;
 
@@ -1794,8 +1794,8 @@
                 currentSlideIndex = totalSlides - 1;
             }
             
-            // Update carousel position
-            const translateX = -currentSlideIndex * 100;
+            // Update carousel position - each slide is 20% of container width
+            const translateX = -currentSlideIndex * 20;
             carousel.style.transform = `translateX(${translateX}%)`;
             
             // Update indicators
@@ -1818,7 +1818,7 @@
                     currentPair.video1.play().catch(e => console.log('Auto-play failed:', e));
                     currentPair.video2.play().catch(e => console.log('Auto-play failed:', e));
                 }
-            }, 300);
+            }, 400);
         }
 
         function currentSlide(slideNumber) {
