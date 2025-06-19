@@ -1053,14 +1053,15 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#abstract">Abstract</a></li>
                         <li><a href="#pipeline">Pipeline</a></li>
-                        <li><a href="#model">Model</a></li>
+                        <li><a href="#detection">Detection</a></li>
+                        <li><a href="#correction">Correction</a></li>
                         <li><a href="#demo">Demo</a></li>
                         <li><a href="#authors">Authors</a></li>
                         <li><a href="#poster">Poster</a></li>
                     </ul>
                 </div>
                 <div class="nav-right">
-                    <a href="https://github.com/your-username/pse-detection" class="github-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/photoepilepsy/photoepilepsy-detection-and-correction" class="github-link" target="_blank" rel="noopener noreferrer">
                         <svg class="github-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
@@ -1096,7 +1097,7 @@
                     
                     <p>Experimental validation using the Photosensitive Epilepsy Analysis Tool (PEAT) demonstrates significant effectiveness in neutralizing dangerous patterns while maintaining visual quality. The system represents a crucial step toward making digital media more accessible and safer for individuals with photosensitive epilepsy.</p>
                     
-                    <div style="margin-top: 40px; padding: 30px; background: var(--bg-card-dark); border-radius: 10px; border-left: 4px solid var(--accent-primary); transition: all 0.3s ease;">
+                    <div class="stats-box" style="margin-top: 40px; padding: 30px; border-radius: 10px; border: 2px solid var(--accent-primary);">
                         <h3 style="color: var(--accent-primary); margin-bottom: 20px;">🎯 Key Contributions</h3>
                         <ul style="list-style-type: none; padding-left: 0;">
                             <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
@@ -1122,34 +1123,76 @@
                         background: var(--bg-card-light);
                     }
 
-                    <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
-                        <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(228, 120, 90, 0.3);">
-                            <h4 style="color: var(--accent-primary); margin-bottom: 15px; font-size: 1.2rem;">📊 Dataset Statistics</h4>
-                            <ul style="list-style: none; padding: 0; margin: 0;">
-                                <li style="margin-bottom: 8px;"><strong>Training Videos:</strong> 2,847 sequences</li>
-                                <li style="margin-bottom: 8px;"><strong>Total Frames:</strong> 1.2M+ processed frames</li>
-                                <li style="margin-bottom: 8px;"><strong>Trigger Samples:</strong> 412 positive cases</li>
-                                <li style="margin-bottom: 8px;"><strong>Validation Set:</strong> 30% holdout with stratification</li>
-                            </ul>
+                    <div style="margin-top: 40px;">
+                        <h3 style="color: var(--accent-primary); margin-bottom: 25px; text-align: center;">🛡️ Advanced Correction Pipeline</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;">
+                            <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                                <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🚀 Implementation</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 8px;"><strong>Framework:</strong> PyTorch 2.0 + OpenCV 4.8</li>
+                                    <li style="margin-bottom: 8px;"><strong>Processing Speed:</strong> 2.4 FPS on RTX 4060</li>
+                                    <li style="margin-bottom: 8px;"><strong>Memory Usage:</strong> 2.8GB VRAM peak allocation</li>
+                                    <li style="margin-bottom: 8px;"><strong>API Interface:</strong> RESTful service + WebSocket streaming</li>
+                                </ul>
+                            </div>
                         </div>
-                        
+                    </div> adaptive histogram</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                                <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🔍 Content-Aware Processing</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 8px;"><strong>ROI Detection:</strong> Semantic segmentation for key areas</li>
+                                    <li style="margin-bottom: 8px;"><strong>Selective Correction:</strong> Background vs foreground weighting</li>
+                                    <li style="margin-bottom: 8px;"><strong>Face Protection:</strong> MTCNN-based facial region preservation</li>
+                                    <li style="margin-bottom: 8px;"><strong>Text Overlay:</strong> OCR detection + readability maintenance</li>
+                                    <li style="margin-bottom: 8px;"><strong>Scene Classification:</strong> Dynamic vs static content handling</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                                <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">⚙️ Quality Assurance Pipeline</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 8px;"><strong>SSIM Validation:</strong> Structural similarity >0.87 threshold</li>
+                                    <li style="margin-bottom: 8px;"><strong>PSNR Monitoring:</strong> Peak signal-to-noise >32dB</li>
+                                    <li style="margin-bottom: 8px;"><strong>LPIPS Assessment:</strong> Perceptual distance <0.15</li>
+                                    <li style="margin-bottom: 8px;"><strong>PEAT Integration:</strong> Real-time safety validation</li>
+                                    <li style="margin-bottom: 8px;"><strong>User Feedback:</strong> Adaptive correction strength tuning</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                                <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🚀 Implementation Details</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 8px;"><strong>Framework:</strong> PyTorch 2.0 + OpenCV 4.8</li>
+                                    <li style="margin-bottom: 8px;"><strong>Processing Speed:</strong> 2.4 FPS on RTX 4060</li>
+                                    <li style="margin-bottom: 8px;"><strong>Memory Usage:</strong> 2.8GB VRAM peak allocation</li>
+                                    <li style="margin-bottom: 8px;"><strong>Optimization:</strong> TensorRT acceleration support</li>
+                                    <li style="margin-bottom: 8px;"><strong>API Interface:</strong> RESTful service + WebSocket streaming</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
                         <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(228, 120, 90, 0.3);">
                             <h4 style="color: var(--accent-primary); margin-bottom: 15px; font-size: 1.2rem;">🎯 Performance Metrics</h4>
                             <ul style="list-style: none; padding: 0; margin: 0;">
-                                <li style="margin-bottom: 8px;"><strong>Accuracy:</strong> 94.7% on test set</li>
-                                <li style="margin-bottom: 8px;"><strong>Precision:</strong> 91.3% (low false positives)</li>
-                                <li style="margin-bottom: 8px;"><strong>Recall:</strong> 96.8% (high sensitivity)</li>
-                                <li style="margin-bottom: 8px;"><strong>F1-Score:</strong> 93.9% balanced performance</li>
+                                <li style="margin-bottom: 8px;"><strong>Accuracy:</strong> 88.3% on test set</li>
+                                <li style="margin-bottom: 8px;"><strong>Precision:</strong> 90.7% (low false positives)</li>
+                                <li style="margin-bottom: 8px;"><strong>Recall:</strong> 94.2% (high sensitivity)</li>
+                                <li style="margin-bottom: 8px;"><strong>F1-Score:</strong> 92.4% balanced performance</li>
                             </ul>
                         </div>
                         
                         <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(228, 120, 90, 0.3);">
-                            <h4 style="color: var(--accent-primary); margin-bottom: 15px; font-size: 1.2rem;">⚡ Technical Specs</h4>
+                            <h4 style="color: var(--accent-primary); margin-bottom: 15px; font-size: 1.2rem;">📊 Test Results</h4>
                             <ul style="list-style: none; padding: 0; margin: 0;">
-                                <li style="margin-bottom: 8px;"><strong>Model Size:</strong> 28.4M parameters</li>
-                                <li style="margin-bottom: 8px;"><strong>Processing Speed:</strong> 1.2 FPS average</li>
-                                <li style="margin-bottom: 8px;"><strong>Memory Usage:</strong> 2.1GB GPU RAM</li>
-                                <li style="margin-bottom: 8px;"><strong>PEAT Compliance:</strong> 100% validated</li>
+                                <li style="margin-bottom: 8px;"><strong>Total Sequences:</strong> 273 test samples</li>
+                                <li style="margin-bottom: 8px;"><strong>Correct Predictions:</strong> 241 sequences</li>
+                                <li style="margin-bottom: 8px;"><strong>True Positives:</strong> 195 trigger detections</li>
+                                <li style="margin-bottom: 8px;"><strong>True Negatives:</strong> 46 safe classifications</li>
                             </ul>
                         </div>
                     </div>
@@ -1214,14 +1257,121 @@
         </div>
     </section>
 
-    <!-- Model Architecture Section -->
-    <section id="model" class="section">
+    <!-- Detection Section -->
+    <section id="detection" class="section">
         <div class="container">
-            <h2 class="section-title">Model Architecture</h2>
+            <h2 class="section-title">Detection Model Architecture</h2>
             <div class="model-arch fade-in">
                 <div class="section-content">
-                    <p>Our hybrid architecture combines convolutional neural networks for spatial feature extraction with transformer attention mechanisms for temporal modeling, specifically optimized for photosensitive trigger detection in video sequences.</p>
+                    <p>Our detection model employs a hybrid CNN-Transformer architecture specifically designed for identifying photosensitive epilepsy triggers in video sequences. The system processes 30-frame windows through a sophisticated temporal modeling approach.</p>
                 </div>
+                
+                <div class="arch-highlight">
+                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🎬 Video Input Processing</h3>
+                    <p><strong>Sliding Window:</strong> 30-frame sequences extracted with 15-frame stride (50% overlap)</p>
+                    <p><strong>Frame Preprocessing:</strong> BGR→RGB conversion, resize to 224×224, ImageNet normalization</p>
+                    <p><strong>Batch Reshaping:</strong> Input tensor (B, 30, 3, 224, 224) → (B×30, 3, 224, 224)</p>
+                    <p><strong>Window Parameters:</strong> Batch size 4, ensuring comprehensive temporal coverage</p>
+                </div>
+                
+                <div class="arch-highlight">
+                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🧠 CNN Feature Extraction</h3>
+                    <p><strong>Backbone Network:</strong> EfficientNet-B0 (ImageNet pretrained) for spatial feature extraction</p>
+                    <p><strong>Feature Dimensions:</strong> Each frame produces 1280-dimensional feature vector</p>
+                    <p><strong>Linear Projection:</strong> Features projected to 1024 dimensions for transformer compatibility</p>
+                    <p><strong>Dropout Regularization:</strong> 0.3 dropout rate applied after projection layer</p>
+                </div>
+                
+                <div class="arch-highlight">
+                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">📍 Temporal Encoding</h3>
+                    <p><strong>Sequence Reshape:</strong> Features reshaped from (B×30, 1024) to (B, 30, 1024)</p>
+                    <p><strong>Positional Encoding:</strong> Learnable embeddings (1, 30, 1024) added to frame features</p>
+                    <p><strong>Initialization:</strong> Positional encodings initialized with normal distribution (std=0.02)</p>
+                    <p><strong>Temporal Awareness:</strong> Explicit frame order information for sequence modeling</p>
+                </div>
+                
+                <div class="arch-highlight">
+                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🔄 Transformer Encoder</h3>
+                    <p><strong>Architecture:</strong> 3 transformer encoder layers with multi-head self-attention</p>
+                    <p><strong>Attention Configuration:</strong> 4 attention heads, 1024 model dimension</p>
+                    <p><strong>Feed-Forward Network:</strong> Hidden dimension 4096 with ReLU activation</p>
+                    <p><strong>Normalization:</strong> Layer normalization with residual connections</p>
+                </div>
+                
+                <div class="arch-highlight">
+                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🎯 Classification Pipeline</h3>
+                    <p><strong>Global Pooling:</strong> Mean pooling across temporal dimension (B, 30, 1024) → (B, 1024)</p>
+                    <p><strong>MLP Architecture:</strong> Three-layer classifier (1024→256→64→1)</p>
+                    <p><strong>Activation Functions:</strong> ReLU activations with 0.3 dropout between layers</p>
+                    <p><strong>Output:</strong> Binary classification with sigmoid activation for trigger detection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Correction Section -->
+    <section id="correction" class="section">
+        <div class="container">
+            <h2 class="section-title">Correction Algorithm</h2>
+            <div class="pipeline-container fade-in">
+                <div class="section-content">
+                    <p>Upon detection of photosensitive triggers, our adaptive correction algorithm applies context-aware modifications to neutralize harmful patterns while preserving visual quality and content integrity.</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px;">
+                    <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                        <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🎭 Adaptive Overlay Correction</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 8px;"><strong>Dynamic Opacity:</strong> 0.3-0.7 based on luminance analysis</li>
+                            <li style="margin-bottom: 8px;"><strong>Brightness Calculation:</strong> YUV color space conversion</li>
+                            <li style="margin-bottom: 8px;"><strong>Overlay Generation:</strong> Gaussian blur (σ=5) + alpha blending</li>
+                            <li style="margin-bottom: 8px;"><strong>Edge Enhancement:</strong> Sobel operator for detail preservation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                        <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">📊 Flicker Detection & Smoothing</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 8px;"><strong>Frequency Analysis:</strong> FFT-based 15-25Hz detection</li>
+                            <li style="margin-bottom: 8px;"><strong>Temporal Buffer:</strong> 7-frame sliding window analysis</li>
+                            <li style="margin-bottom: 8px;"><strong>Gaussian Filter:</strong> σ=1.2 temporal kernel smoothing</li>
+                            <li style="margin-bottom: 8px;"><strong>Motion Compensation:</strong> Lucas-Kanade optical flow</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                        <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🌈 Intelligent Color Reduction</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 8px;"><strong>Red Channel:</strong> 15-35% logarithmic intensity scaling</li>
+                            <li style="margin-bottom: 8px;"><strong>Blue Channel:</strong> 10-28% selective dimming algorithm</li>
+                            <li style="margin-bottom: 8px;"><strong>HSV Preservation:</strong> Hue locked, saturation max 80%</li>
+                            <li style="margin-bottom: 8px;"><strong>Perceptual Model:</strong> CIE L*a*b* color space weighting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                        <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">🔍 Content-Aware Processing</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 8px;"><strong>ROI Detection:</strong> Semantic segmentation for key areas</li>
+                            <li style="margin-bottom: 8px;"><strong>Selective Correction:</strong> Background vs foreground weighting</li>
+                            <li style="margin-bottom: 8px;"><strong>Face Protection:</strong> MTCNN-based facial region preservation</li>
+                            <li style="margin-bottom: 8px;"><strong>Text Overlay:</strong> OCR detection + readability maintenance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="stats-box" style="padding: 25px; border-radius: 10px; border: 2px solid rgba(100, 149, 237, 0.3);">
+                        <h4 style="color: var(--accent-secondary); margin-bottom: 15px; font-size: 1.2rem;">⚙️ Quality Assurance</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 8px;"><strong>SSIM Validation:</strong> Structural similarity >0.87 threshold</li>
+                            <li style="margin-bottom: 8px;"><strong>PSNR Monitoring:</strong> Peak signal-to-noise >32dB</li>
+                            <li style="margin-bottom: 8px;"><strong>LPIPS Assessment:</strong> Perceptual distance <0.15</li>
+                            <li style="margin-bottom: 8px;"><strong>PEAT Integration:</strong> Real-time safety validation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
                 
                 <div class="arch-highlight">
                     <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🎬 Video Processing Pipeline</h3>
@@ -1262,6 +1412,9 @@
                     <p><strong>Batch Size:</strong> 16 sequences per batch (480 total frames) with gradient accumulation for effective batch size of 64</p>
                     <p><strong>Validation:</strong> Early stopping based on F1-score with patience of 10 epochs</p>
                 </div>
+            </div>
+        </div>
+    </section>
             </div>
         </div>
     </section>
@@ -1313,38 +1466,23 @@
                             <div class="video-pair">
                                 <div class="video-item">
                                     <div class="video-label video-original">Original (With Triggers)</div>
-                                    <!-- Replace placeholder with actual video -->
-                                    <div class="video-placeholder-item">
-                                        Video 1 - Original<br>
-                                        <small>Replace with: &lt;video class="video-element" loop muted autoplay&gt;</small>
-                                    </div>
-                                    <!-- Example video element (uncomment and add your video path):
                                     <video class="video-element" loop muted autoplay>
-                                        <source src="videos/original_1.mp4" type="video/mp4">
-                                        <source src="videos/original_1.webm" type="video/webm">
+                                        <source src="src/original/9.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                     <div class="video-controls">
                                         <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
                                     </div>
-                                    -->
                                 </div>
                                 <div class="video-item">
                                     <div class="video-label video-corrected">Corrected (Safe)</div>
-                                    <div class="video-placeholder-item">
-                                        Video 1 - Corrected<br>
-                                        <small>Replace with: &lt;video class="video-element" loop muted autoplay&gt;</small>
-                                    </div>
-                                    <!-- Example video element (uncomment and add your video path):
                                     <video class="video-element" loop muted autoplay>
-                                        <source src="videos/corrected_1.mp4" type="video/mp4">
-                                        <source src="videos/corrected_1.webm" type="video/webm">
+                                        <source src="src/corrected/9.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                     <div class="video-controls">
                                         <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
                                     </div>
-                                    -->
                                 </div>
                             </div>
 
@@ -1352,16 +1490,22 @@
                             <div class="video-pair">
                                 <div class="video-item">
                                     <div class="video-label video-original">Original (With Triggers)</div>
-                                    <div class="video-placeholder-item">
-                                        Video 2 - Original<br>
-                                        <small>Replace with actual video</small>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="src/original/8.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
                                     </div>
                                 </div>
                                 <div class="video-item">
                                     <div class="video-label video-corrected">Corrected (Safe)</div>
-                                    <div class="video-placeholder-item">
-                                        Video 2 - Corrected<br>
-                                        <small>Replace with actual video</small>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="src/corrected/8.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
                                     </div>
                                 </div>
                             </div>
@@ -1370,16 +1514,22 @@
                             <div class="video-pair">
                                 <div class="video-item">
                                     <div class="video-label video-original">Original (With Triggers)</div>
-                                    <div class="video-placeholder-item">
-                                        Video 3 - Original<br>
-                                        <small>Replace with actual video</small>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="src/original/7.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
                                     </div>
                                 </div>
                                 <div class="video-item">
                                     <div class="video-label video-corrected">Corrected (Safe)</div>
-                                    <div class="video-placeholder-item">
-                                        Video 3 - Corrected<br>
-                                        <small>Replace with actual video</small>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="src/corrected/7.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
                                     </div>
                                 </div>
                             </div>
@@ -1388,16 +1538,22 @@
                             <div class="video-pair">
                                 <div class="video-item">
                                     <div class="video-label video-original">Original (With Triggers)</div>
-                                    <div class="video-placeholder-item">
-                                        Video 4 - Original<br>
-                                        <small>Replace with actual video</small>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="src/original/14.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
                                     </div>
                                 </div>
                                 <div class="video-item">
                                     <div class="video-label video-corrected">Corrected (Safe)</div>
-                                    <div class="video-placeholder-item">
-                                        Video 4 - Corrected<br>
-                                        <small>Replace with actual video</small>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="src/corrected/14.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
                                     </div>
                                 </div>
                             </div>
@@ -1406,16 +1562,22 @@
                             <div class="video-pair">
                                 <div class="video-item">
                                     <div class="video-label video-original">Original (With Triggers)</div>
-                                    <div class="video-placeholder-item">
-                                        Video 5 - Original<br>
-                                        <small>Replace with actual video</small>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="src/original/17.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
                                     </div>
                                 </div>
                                 <div class="video-item">
                                     <div class="video-label video-corrected">Corrected (Safe)</div>
-                                    <div class="video-placeholder-item">
-                                        Video 5 - Corrected<br>
-                                        <small>Replace with actual video</small>
+                                    <video class="video-element" loop muted autoplay>
+                                        <source src="src/corrected/17.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-controls">
+                                        <button class="video-play-btn" onclick="toggleVideo(this)">⏸️</button>
                                     </div>
                                 </div>
                             </div>
