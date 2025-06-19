@@ -1266,44 +1266,46 @@
                     <p>Our detection model employs a hybrid CNN-Transformer architecture specifically designed for identifying photosensitive epilepsy triggers in video sequences. The system processes 30-frame windows through a sophisticated temporal modeling approach.</p>
                 </div>
                 
-                <div class="arch-highlight">
-                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🎬 Video Input Processing</h3>
-                    <p><strong>Sliding Window:</strong> 30-frame sequences extracted with 15-frame stride (50% overlap)</p>
-                    <p><strong>Frame Preprocessing:</strong> BGR→RGB conversion, resize to 224×224, ImageNet normalization</p>
-                    <p><strong>Batch Reshaping:</strong> Input tensor (B, 30, 3, 224, 224) → (B×30, 3, 224, 224)</p>
-                    <p><strong>Window Parameters:</strong> Batch size 4, ensuring comprehensive temporal coverage</p>
-                </div>
-                
-                <div class="arch-highlight">
-                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🧠 CNN Feature Extraction</h3>
-                    <p><strong>Backbone Network:</strong> EfficientNet-B0 (ImageNet pretrained) for spatial feature extraction</p>
-                    <p><strong>Feature Dimensions:</strong> Each frame produces 1280-dimensional feature vector</p>
-                    <p><strong>Linear Projection:</strong> Features projected to 1024 dimensions for transformer compatibility</p>
-                    <p><strong>Dropout Regularization:</strong> 0.3 dropout rate applied after projection layer</p>
-                </div>
-                
-                <div class="arch-highlight">
-                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">📍 Temporal Encoding</h3>
-                    <p><strong>Sequence Reshape:</strong> Features reshaped from (B×30, 1024) to (B, 30, 1024)</p>
-                    <p><strong>Positional Encoding:</strong> Learnable embeddings (1, 30, 1024) added to frame features</p>
-                    <p><strong>Initialization:</strong> Positional encodings initialized with normal distribution (std=0.02)</p>
-                    <p><strong>Temporal Awareness:</strong> Explicit frame order information for sequence modeling</p>
-                </div>
-                
-                <div class="arch-highlight">
-                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🔄 Transformer Encoder</h3>
-                    <p><strong>Architecture:</strong> 3 transformer encoder layers with multi-head self-attention</p>
-                    <p><strong>Attention Configuration:</strong> 4 attention heads, 1024 model dimension</p>
-                    <p><strong>Feed-Forward Network:</strong> Hidden dimension 4096 with ReLU activation</p>
-                    <p><strong>Normalization:</strong> Layer normalization with residual connections</p>
-                </div>
-                
-                <div class="arch-highlight">
-                    <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🎯 Classification Pipeline</h3>
-                    <p><strong>Global Pooling:</strong> Mean pooling across temporal dimension (B, 30, 1024) → (B, 1024)</p>
-                    <p><strong>MLP Architecture:</strong> Three-layer classifier (1024→256→64→1)</p>
-                    <p><strong>Activation Functions:</strong> ReLU activations with 0.3 dropout between layers</p>
-                    <p><strong>Output:</strong> Binary classification with sigmoid activation for trigger detection</p>
+                <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+                    <div class="arch-highlight">
+                        <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🎬 Video Input Processing</h3>
+                        <p><strong>Sliding Window:</strong> 30-frame sequences extracted with 15-frame stride (50% overlap)</p>
+                        <p><strong>Frame Preprocessing:</strong> BGR→RGB conversion, resize to 224×224, ImageNet normalization</p>
+                        <p><strong>Batch Reshaping:</strong> Input tensor (B, 30, 3, 224, 224) → (B×30, 3, 224, 224)</p>
+                        <p><strong>Window Parameters:</strong> Batch size 4, ensuring comprehensive temporal coverage</p>
+                    </div>
+                    
+                    <div class="arch-highlight">
+                        <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🧠 CNN Feature Extraction</h3>
+                        <p><strong>Backbone Network:</strong> EfficientNet-B0 (ImageNet pretrained) for spatial feature extraction</p>
+                        <p><strong>Feature Dimensions:</strong> Each frame produces 1280-dimensional feature vector</p>
+                        <p><strong>Linear Projection:</strong> Features projected to 1024 dimensions for transformer compatibility</p>
+                        <p><strong>Dropout Regularization:</strong> 0.3 dropout rate applied after projection layer</p>
+                    </div>
+                    
+                    <div class="arch-highlight">
+                        <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">📍 Temporal Encoding</h3>
+                        <p><strong>Sequence Reshape:</strong> Features reshaped from (B×30, 1024) to (B, 30, 1024)</p>
+                        <p><strong>Positional Encoding:</strong> Learnable embeddings (1, 30, 1024) added to frame features</p>
+                        <p><strong>Initialization:</strong> Positional encodings initialized with normal distribution (std=0.02)</p>
+                        <p><strong>Temporal Awareness:</strong> Explicit frame order information for sequence modeling</p>
+                    </div>
+                    
+                    <div class="arch-highlight">
+                        <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🔄 Transformer Encoder</h3>
+                        <p><strong>Architecture:</strong> 3 transformer encoder layers with multi-head self-attention</p>
+                        <p><strong>Attention Configuration:</strong> 4 attention heads, 1024 model dimension</p>
+                        <p><strong>Feed-Forward Network:</strong> Hidden dimension 4096 with ReLU activation</p>
+                        <p><strong>Normalization:</strong> Layer normalization with residual connections</p>
+                    </div>
+                    
+                    <div class="arch-highlight">
+                        <h3 style="color: rgb(126, 87, 194); margin-bottom: 15px;">🎯 Classification Pipeline</h3>
+                        <p><strong>Global Pooling:</strong> Mean pooling across temporal dimension (B, 30, 1024) → (B, 1024)</p>
+                        <p><strong>MLP Architecture:</strong> Three-layer classifier (1024→256→64→1)</p>
+                        <p><strong>Activation Functions:</strong> ReLU activations with 0.3 dropout between layers</p>
+                        <p><strong>Output:</strong> Binary classification with sigmoid activation for trigger detection</p>
+                    </div>
                 </div>
             </div>
         </div>
